@@ -410,6 +410,40 @@ button {
     margin-bottom: 40px;
     overflow: hidden;
 
+    .filter-panel {
+      width: 200px;
+      background-color: rgb(228,234,234);
+
+      .filter-name {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        
+        h3 {
+          font-weight: 300;
+        }
+      }
+
+      .options-container {
+        max-height: 0;
+        overflow: hidden;
+        transition: 1s ease-in;
+      }
+
+      &:hover .options-container {
+        max-height: 100vh;
+      }
+
+      .option {
+        padding: 10px;
+        border-top: 1px solid rgb(173, 177, 194);
+
+        input {
+          margin-right: 10px;
+        }
+      }
+    }
+
     label {
       margin-right: 10px;
     }

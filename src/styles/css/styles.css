@@ -353,6 +353,33 @@ button {
   margin-bottom: 40px;
   overflow: hidden;
 }
+.all-products .filter-section .filter-panel {
+  width: 200px;
+  background-color: rgb(228, 234, 234);
+}
+.all-products .filter-section .filter-panel .filter-name {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.all-products .filter-section .filter-panel .filter-name h3 {
+  font-weight: 300;
+}
+.all-products .filter-section .filter-panel .options-container {
+  max-height: 0;
+  overflow: hidden;
+  transition: 1s ease-in;
+}
+.all-products .filter-section .filter-panel:hover .options-container {
+  max-height: 100vh;
+}
+.all-products .filter-section .filter-panel .option {
+  padding: 10px;
+  border-top: 1px solid rgb(173, 177, 194);
+}
+.all-products .filter-section .filter-panel .option input {
+  margin-right: 10px;
+}
 .all-products .filter-section label {
   margin-right: 10px;
 }
