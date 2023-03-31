@@ -1,0 +1,557 @@
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@200;300;500;600&display=swap");
+.cansel {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.App {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  font-family: "Prompt", sans-serif;
+  color: rgb(55, 56, 60);
+}
+
+.left-panel {
+  position: realtive;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100px;
+  border-right: 3px solid rgb(34, 125, 123);
+}
+.left-panel button {
+  position: absolute;
+  top: 50px;
+}
+.left-panel .sidebar {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 100px;
+  width: 0;
+  padding: 0;
+  background-color: rgb(34, 125, 123);
+  transition: width 0.3s;
+  z-index: 9999;
+  color: rgb(201, 212, 208);
+  font-family: "Prompt", sans-serif;
+}
+.left-panel .sidebar.opened {
+  display: block;
+  width: 200px;
+  padding: 20px 20px;
+}
+.left-panel .sidebar h4 {
+  margin-bottom: 100px;
+  font-weight: 300;
+}
+.left-panel .sidebar h3 {
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+.left-panel .filterbar {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+.left-panel .filterbar .filter-panel {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  background-color: orange;
+  color: white;
+  cursor: pointer;
+}
+.left-panel .filterbar .filter-panel.showed .options-container {
+  display: flex;
+}
+.left-panel .filterbar .filter-panel .options-container {
+  position: absolute;
+  left: 100px;
+  z-index: 9999;
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+}
+.left-panel .filterbar .filter-panel .options-container .option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100px;
+  background-color: orange;
+}
+
+.main {
+  flex-grow: 1;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.homepage {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+.homepage .left-part {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 350px;
+  margin-left: 30px;
+}
+.homepage .left-part h4 {
+  margin-top: 30px;
+}
+.homepage .left-part .lower {
+  margin-bottom: 100px;
+}
+.homepage .left-part .lower h1 {
+  font-size: 4rem;
+  margin: 20px 0;
+  font-weight: 600;
+}
+.homepage .left-part .lower p {
+  font-size: 0.8rem;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+.homepage .left-part .lower button {
+  background-color: orange;
+  padding: 13px;
+  font-family: "Prompt", sans-serif;
+  color: rgb(221, 221, 221);
+}
+.homepage img {
+  height: 100%;
+}
+
+.product-card {
+  width: 200px;
+}
+.product-card .upper-block {
+  position: relative;
+  height: 300px;
+}
+.product-card .upper-block img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.product-card .upper-block .rate-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 20px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.518);
+  color: white;
+}
+.product-card .upper-block .buy-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: rgba(0, 0, 0, 0.498);
+}
+.product-card .upper-block .buy-panel button {
+  height: 50px;
+  width: 50px;
+  font-size: 2rem;
+  color: rgb(221, 221, 221);
+  transition: font-size 0.05s;
+}
+.product-card .upper-block .buy-panel button:hover {
+  color: orange;
+}
+.product-card .upper-block .buy-panel button:active {
+  font-size: 1.5rem;
+}
+.product-card .upper-block .buy-panel button .icon {
+  color: white;
+}
+.product-card .upper-block:hover .buy-panel {
+  display: flex;
+}
+.product-card .lower-block {
+  color: rgb(45, 56, 64);
+}
+.product-card .lower-block h6 {
+  font-size: 1rem;
+  font-weight: 300;
+}
+.product-card .lower-block h3 {
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+.product-card .lower-block h3.added {
+  color: rgb(203, 108, 130);
+}
+
+.add-product {
+  padding: 20px;
+}
+
+.add-product-panel {
+  display: flex;
+  flex-shrink: 1;
+  gap: 20px;
+  width: max-content;
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 3px solid black;
+  border-radius: 10px;
+}
+.add-product-panel .field {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: rgb(23, 64, 82);
+  color: white;
+}
+.add-product-panel .field.changed {
+  background-color: orange;
+}
+.add-product-panel label {
+  font-weight: 400;
+}
+.add-product-panel input {
+  margin-bottom: 10px;
+  padding-left: 10px;
+  width: 200px;
+}
+.add-product-panel select {
+  margin-bottom: 10px;
+  width: 200px;
+}
+.add-product-panel img {
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
+}
+.add-product-panel button {
+  background-color: orange;
+  padding: 10px;
+  color: white;
+}
+.add-product-panel button:checked {
+  background-color: rgb(177, 115, 0);
+}
+.add-product-panel .success {
+  color: green;
+}
+.add-product-panel .error {
+  color: darkred;
+}
+
+.product-list {
+  display: flex;
+  gap: 50px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.right-panel {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 200px;
+  color: rgb(221, 221, 221);
+}
+.right-panel .basket-panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+  border-left: 10px solid orange;
+  background-color: rgb(53, 54, 58);
+}
+.right-panel .basket-panel .basket {
+  position: relative;
+}
+.right-panel .basket-panel .basket .qty {
+  position: absolute;
+  right: -9px;
+  bottom: 0;
+  z-index: 9999;
+  padding: 0 6px;
+  background-color: rgb(53, 54, 58);
+  color: rgb(255, 20, 20);
+}
+.right-panel .total-panel {
+  height: 200px;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: rgb(53, 54, 58);
+}
+.right-panel .total-panel .left-col {
+  padding-right: 20px;
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+.right-panel .total-panel .total-row {
+  padding-top: 50px;
+}
+.right-panel .total-panel .total {
+  font-size: 1.3rem;
+}
+.right-panel .checkout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+  background-color: orange;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.all-products {
+  padding: 40px;
+}
+.all-products h1 {
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+.all-products p {
+  margin-bottom: 40px;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+.all-products .filter-section {
+  margin-bottom: 40px;
+  overflow: hidden;
+}
+.all-products .filter-section label {
+  margin-right: 10px;
+}
+.all-products .filter-section select {
+  margin-right: 20px;
+}
+.all-products .pages-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  margin: 30px;
+}
+.all-products .pages-container span {
+  font-size: 1.5rem;
+  color: rgb(159, 163, 166);
+  cursor: pointer;
+}
+.all-products .pages-container span.checked {
+  color: rgb(53, 54, 58);
+}
+.all-products .pages-container span:hover {
+  color: orange;
+}
+
+.products-table td {
+  padding: 20px;
+}
+.products-table img {
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+}
+
+.edit-product-panel {
+  padding: 20px;
+}
+
+.basket-page {
+  padding: 40px;
+}
+.basket-page h1 {
+  margin-top: 50px;
+  font-weight: 300;
+}
+.basket-page p {
+  margin-bottom: 50px;
+  font-weight: 300;
+}
+.basket-page .product-check {
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: rgb(228, 234, 234);
+}
+.basket-page .product-check .something {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.basket-page .product-check .fuck {
+  width: 150px;
+}
+.basket-page .product-check h3 {
+  font-size: 2rem;
+  font-weight: 300;
+}
+.basket-page .product-check h3.name {
+  font-size: 1.5rem;
+}
+.basket-page .product-check h4 {
+  font-weight: 300;
+  color: rgb(159, 163, 166);
+}
+.basket-page .product-check img {
+  height: 100%;
+  width: 80px;
+  object-fit: cover;
+}
+.basket-page .product-check .cock {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.basket-page .product-check .cock .qty {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.basket-page .product-check .cock .qty h3 {
+  width: 30px;
+  text-align: center;
+}
+.basket-page .product-check button.close-button {
+  margin-right: 30px;
+}
+
+.edit-brands {
+  padding: 20px;
+}
+.edit-brands .add-brand-panel {
+  padding: 20px;
+  margin-bottom: 50px;
+  border: 3px solid black;
+  border-radius: 10px;
+}
+.edit-brands .add-brand-panel label {
+  margin-right: 20px;
+}
+.edit-brands .add-brand-panel input {
+  margin-right: 20px;
+}
+.edit-brands .add-brand-panel button {
+  padding: 10px;
+  background-color: orange;
+  color: white;
+}
+
+.custom-table tr {
+  border: 2px solid black;
+}
+.custom-table td {
+  padding: 10px;
+  border: 2px solid black;
+}
+
+.desc-page {
+  padding: 100px;
+}
+.desc-page h1 {
+  font-weight: 400;
+}
+.desc-page p {
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+.desc-panel {
+  display: flex;
+  height: 500px;
+  width: 1000px;
+  background-color: rgb(228, 234, 234);
+}
+.desc-panel img {
+  flex-shrink: 0;
+  height: 100%;
+  width: 50%;
+  object-fit: cover;
+}
+.desc-panel .right {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+}
+.desc-panel .right button.close-button {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  color: rgb(159, 163, 166);
+}
+.desc-panel .right button.close-button:hover {
+  color: rgb(55, 56, 60);
+}
+.desc-panel .right .base h1 {
+  font-weight: 400;
+}
+.desc-panel .right .base h4 {
+  font-weight: 400;
+  color: rgb(159, 163, 166);
+}
+.desc-panel .right .base table {
+  margin: 20px 0;
+}
+.desc-panel .right .base table th {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: rgb(159, 163, 166);
+}
+.desc-panel .right .base table td {
+  padding: 10px 30px;
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+.desc-panel .right .base table td .qty {
+  display: flex;
+  gap: 15px;
+}
+.desc-panel .right .base table td .qty p {
+  margin: 0;
+  font-weight: inherit;
+}
+.desc-panel .right .base p {
+  font-weight: 300;
+}
+
+/*# sourceMappingURL=styles.css.map */
